@@ -1,0 +1,29 @@
+!function(){function e(e,t,a,r){Object.defineProperty(e,t,{get:a,set:r,enumerable:!0,configurable:!0})}function t(e){return e&&e.__esModule?e.default:e}var a="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},r={},n={},i=a.parcelRequire94c2;null==i&&((i=function(e){if(e in r)return r[e].exports;if(e in n){var t=n[e];delete n[e];var a={id:e,exports:{}};return r[e]=a,t.call(a.exports,a,a.exports),a.exports}var i=Error("Cannot find module '"+e+"'");throw i.code="MODULE_NOT_FOUND",i}).register=function(e,t){n[e]=t},a.parcelRequire94c2=i);var o=i.register;o("gTwGg",function(t,a){e(t.exports,"register",function(){return r},function(e){return r=e});var r,n=new Map;r=function(e,t){for(var a=0;a<t.length-1;a+=2)n.set(t[a],{baseUrl:e,path:t[a+1]})}}),o("ai42B",function(t,a){e(t.exports,"getBundleURL",function(){return r},function(e){return r=e});var r,n={};r=function(e){var t=n[e];return t||(t=function(){try{throw Error()}catch(t){var e=(""+t.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);if(e)return(""+e[2]).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/,"$1")+"/"}return"/"}(),n[e]=t),t}}),o("1OZqT",function(a,r){e(a.exports,"ORDERS",function(){return o}),e(a.exports,"BASKET_EMPTY",function(){return c}),e(a.exports,"ORDER_NO_PRODUCT",function(){return l}),e(a.exports,"saveCartToLocalStorage",function(){return d}),e(a.exports,"loadCartFromLocalStorage",function(){return s}),e(a.exports,"showErrorMessage",function(){return u});var n=i("97MNK");let o="Заказы",c="Корзина пуста",l="В заказе нет товаров";function d(e){localStorage.setItem("bag",JSON.stringify(e))}function s(){return JSON.parse(localStorage.getItem("bag"))||[]}function u(e){document.body.innerHTML=`
+         <div class="container">
+            <div class="link-cart">
+                <a href="./index.html" class="link__wrapper">
+                   <img src="${t(n)}" alt="\u{438}\u{43A}\u{43E}\u{43D}\u{43A}\u{430} \u{432}\u{435}\u{43A}\u{442}\u{43E}\u{440}\u{430}" class="img__vector" />
+                      <p class="link__title">\u{421}\u{43F}\u{438}\u{441}\u{43E}\u{43A} \u{442}\u{43E}\u{432}\u{430}\u{440}\u{43E}\u{432}</p>
+                </a>
+            </div>
+            <h2>${e}</h2>
+         </div>
+    `}}),o("97MNK",function(e,t){e.exports=i("ai42B").getBundleURL("6iGl8")+"ic-Vector.49399ea7.svg"}),i("gTwGg").register(i("ai42B").getBundleURL("6iGl8"),JSON.parse('["6iGl8","index.135fbac4.js","gaBif","rating.cdb36a68.svg","hLEtC","ic-Vector.49399ea7.svg","c21N9","apple.c23c0112.png","kqUge","headphones.49f52ace.svg","gj20e","Iphone 11-black.5c8235e7.svg","jW9T2","Iphone 11-blue.577f2131.svg","dJ4t2","Iphone 13 Pro-silver.e8b60c70.svg","8fXbE","Iphone 13 Pro-grey.4056ddb3.svg","7Jk0b","Samsung Galaxy Note 21.a84e0b4c.svg","6StMK","Samsung Galaxy S21+.fb4ec577.svg","6XQSG","ic-cart.45602407.svg","1rOl6","checkout.0485d843.js"]'));var c=i("1OZqT"),l=i("lmqRc"),d=i("1Nsm9");i("ai42B").getBundleURL("6iGl8"),i("ai42B").getBundleURL("6iGl8"),i("ai42B").getBundleURL("6iGl8"),i("ai42B").getBundleURL("6iGl8"),i("ai42B").getBundleURL("6iGl8"),i("ai42B").getBundleURL("6iGl8"),i("ai42B").getBundleURL("6iGl8"),i("ai42B").getBundleURL("6iGl8");var s={};s=i("ai42B").getBundleURL("6iGl8")+"ic-cart.45602407.svg",i("ai42B").getBundleURL("6iGl8");let u=(0,d.initializeApp)({apiKey:"AIzaSyBQ0ay2192erVHEap3YGibJBct9cWnw1qo",authDomain:"shop-fda0b.firebaseapp.com",projectId:"shop-fda0b",storageBucket:"shop-fda0b.appspot.com",messagingSenderId:"583984113131",appId:"1:583984113131:web:81a003a19230c20e0c65ae"}),g=(0,l.getFirestore)(u);async function f(){let e=[];try{return(await (0,l.getDocs)((0,l.collection)(g,"products"))).forEach(t=>{e.push({id:t.id,...t.data()})}),e}catch(e){return console.error("Ошибка при получении товаров:",e),[]}}let p=document.getElementById("card-list"),_=document.getElementById("bagListImg"),m=document.querySelector(".orders__list"),h=[],b=localStorage.getItem("userId");function E(){_.innerHTML="",(0,c.loadCartFromLocalStorage)().forEach(e=>{let t=document.createElement("li");t.className="bag-item",t.innerHTML=`<img class="bag__img" src="${e.imageURL}" alt="${e.model}" />`,_.appendChild(t)})}async function v(){let e=(0,l.collection)(g,"orders");try{let t=await (0,l.getDocs)(e);if(m.innerHTML="",t.empty)return;{let e=document.createElement("h3");e.textContent=c.ORDERS,m.appendChild(e)}t.forEach(e=>{let t=document.createElement("a");t.className="orders__list-text",t.href=`orders.html?id=${e.id}`,t.textContent=`# ${e.id}`,m.appendChild(t)})}catch(e){console.error("Ошибка при получении заказов: ",e)}}async function R(){var e;e=await f(),p.innerHTML="",e.forEach(e=>{let a=document.createElement("li");a.className="card",a.setAttribute("product-card-id",e.id),a.innerHTML=`
+      <div class="card__image">
+        <a href="./card.html?id=${e.id}" class="card__img">
+          <img src="${e.imageURL}" alt="${e.model}" />
+        </a>
+      </div>
+      <div class="card__content">
+        <a href="card.html?id=${e.id}" class="card__info">
+          <h2 class="card__model">${e.model}</h2>
+          <p class="card__series">${e.series}</p>
+        </a>
+        <div class="card__price">
+          <p class="card__price-number">$ ${e.price}</p>
+          <button class="addButton-bag" data-id=${e.id}>
+            <img src="${t(s)}" class="addButton-img" />
+          </button>
+        </div>
+      </div>   
+    `,a.querySelector(".addButton-bag").addEventListener("click",()=>(function(e){let t=h.find(t=>t.id===e.id);t?t.quantity++:h.push({...e,quantity:1}),(0,c.saveCartToLocalStorage)(h),E()})(e)),p.appendChild(a)}),h=(0,c.loadCartFromLocalStorage)(),E(),v()}b||(b="user_"+Date.now(),localStorage.setItem("userId",b)),window.onload=R}();
